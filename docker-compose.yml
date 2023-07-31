@@ -33,7 +33,7 @@ services:
       - gemconfig:/root/.local/share/gem
     ports:
       - "3000:3000"
-    command: bash -c "bundle && ruby app/import_from_csv.rb && rerun --background server.rb"
+    command: bash -c "bundle && rerun --background server.rb"
 
   redis-worker:
     image: ruby
