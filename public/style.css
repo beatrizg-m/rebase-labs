@@ -28,3 +28,13 @@ nav {
 .gap-1 {
   gap: 4px;
 }
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+}
+.header-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

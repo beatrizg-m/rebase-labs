@@ -21,21 +21,31 @@ function buildTable(data){
       </td>
     `;
     dataList.appendChild(tr);
+
     const detailsButton = tr.querySelector('.details-link');
     detailsButton.addEventListener('click', () => {
       const detailsData = document.getElementById('detailsData');
       detailsData.innerHTML = `
-      <h5>Paciente</h5>
-      <li><strong>Nome:</strong> ${patient.name}</li>
-      <li><strong>CPF:</strong> ${patient.cpf}</li>
-      <li><strong>E-mail:</strong> ${patient.email}</li>
-      <h5>Médico</h5>
-      <li><strong>Nome:</strong> ${patient.doctor.name}</li>
-      <li><strong>CRM:</strong> ${patient.doctor.crm}</li>
-      <li><strong>CRM Estado:</strong> ${patient.doctor.crm_state}</li>
-      <h5>Exames</h5>
-
+        <h6>Paciente</h6>
+        <li><strong>Nome:</strong> ${patient.name}</li>
+        <li><strong>CPF:</strong> ${patient.cpf}</li>
+        <li><strong>E-mail:</strong> ${patient.email}</li>
+        <h6>Médico</h6>
+        <li><strong>Nome:</strong> ${patient.doctor.name}</li>
+        <li><strong>CRM:</strong> ${patient.doctor.crm}</li>
+        <li><strong>CRM Estado:</strong> ${patient.doctor.crm_state}</li>
+        <h5>Exames</h5>
       `;
+      const dataExam = document.getElementById('dataExam');
+      const tr = document.getElementById('tr');
+
+      tr.innerHTML = `
+        <th class="data" >${patient.result_token}</th>
+        <th class="data" >${patient.type}</th>
+        <th class="data" >${patient.limits}</th>
+        <th class="data" >${patient.result}</th>
+      `;
+      dataExam.appendChild(tr);
     });
   });
 }

@@ -35,14 +35,34 @@
       </table>
 
       <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="detailsModalLabel">Detalhes dos Exames</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+              <div class="header-modal">
+                <h4 class="modal-title" id="detailsModalLabel">Detalhes dos Exames</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+              </div>
+              <div id="detailsData">
+              </div>
+              <table class="table sm table-striped">
+                <tbody id="dataExam">
+                  <thead class="table-header">
+                    <tr>
+                      <th>Token</th>
+                      <th>Exame</th>
+                      <th>Limites</th>
+                      <th>Resultado</th>
+                      <!-- <th></th> -->
+                    </tr>
+                  </thead>
+                </tbody>
+              </table>
             </div>
             <div class="modal-body">
-              <p id="detailsData"></p>
+              <div id="detailsData">
+
+              </div>
+              <!-- <p id="detailsData"></p> -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
