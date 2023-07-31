@@ -1,6 +1,61 @@
-<head></head>
-<body>
-  <h1>Music genres</h1>
-  <ul></ul>
-  <script src="main.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Rebase Lab</title>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <img class="logo" src="images/logotipo.svg" alt="logo-rebase">
+
+        <form class="d-flex gap-1" role="search">
+          <input id="filter" class="form-control me-1" type="search" placeholder="Search for token">
+          <i class="fa-duotone fa-magnifying-glass"></i>
+          <button id="submit-search" class="btn btn-outline-success" type="submit">Search</button>
+          <button id="clear-filter" class="btn btn-outline-danger" type="submit">Clear</button>
+        </form>
+      </div>
+    </nav>
+    <main>
+      <table class="table sm table-striped">
+        <tbody id="dataList">
+          <thead class="table-header">
+            <tr>
+              <th>Token</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Email</th>
+              <th>Médico</th>
+              <th></th>
+            </tr>
+          </thead>
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detailsModalLabel">Detalhes do Paciente</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+              <p id="detailsData"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="filter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
