@@ -24,7 +24,18 @@ function buildTable(data){
     const detailsButton = tr.querySelector('.details-link');
     detailsButton.addEventListener('click', () => {
       const detailsData = document.getElementById('detailsData');
-      detailsData.textContent = `Nome: ${patient.name}\nCPF: ${patient.cpf}\nE-mail: ${patient.email}\nMédico: ${patient.doctor.name}`;
+      detailsData.innerHTML = `
+      <h5>Paciente</h5>
+      <li><strong>Nome:</strong> ${patient.name}</li>
+      <li><strong>CPF:</strong> ${patient.cpf}</li>
+      <li><strong>E-mail:</strong> ${patient.email}</li>
+      <h5>Médico</h5>
+      <li><strong>Nome:</strong> ${patient.doctor.name}</li>
+      <li><strong>CRM:</strong> ${patient.doctor.crm}</li>
+      <li><strong>CRM Estado:</strong> ${patient.doctor.crm_state}</li>
+      <h5>Exames</h5>
+
+      `;
     });
   });
 }

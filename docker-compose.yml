@@ -2,6 +2,7 @@ version: '3.8'
 services:
   rebase_db:
     image: postgres:latest
+    working_dir: /app
     container_name: rebase_db
     environment:
       POSTGRES_USER: user
@@ -11,6 +12,32 @@ services:
       - "5432:5432"
     volumes:
       - exame_data:/var/lib/postgresql/data
+
+  test:
+    image: ruby
+    working_dir: /app
+    volumes:
+      - .:/app
+      - rubygems:/usr/local/bundle
+      - gemconfig:/root/.local/share/gem
+    command: bash -c "bundle install && bundle exec rspec"
+    environment:
+      - RACK_ENV=test
+    depends_on:
+      - db-test
+    networks:
+      - tests
+
+  db-test:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rebase_labs_data
+    networks:
+      tests:
+        aliases:
+          - rebase_db
 
   redis:
     image: redis/redis-stack-server:latest
@@ -50,6 +77,8 @@ services:
       - gemconfig:/root/.local/share/gem
     command: bash -c "ruby app/worker.rb"
 
+networks:
+  tests:
 volumes:
   exame_data:
   rubygems:
