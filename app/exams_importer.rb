@@ -1,14 +1,18 @@
 require 'csv'
 require 'pg'
 require_relative 'create_tables'
+require 'sidekiq'
 
 class ExamsImporter
+  include Sidekiq::Worker
   def self.import_from_csv(file)
     conn = start_connection
     data = read_file(file)
     create_tables(conn)
     import_csv(conn, data)
     conn.close
+
+    puts 'Importado com sucesso!'
   end
 
   def self.start_connection

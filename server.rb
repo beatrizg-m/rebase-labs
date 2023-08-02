@@ -3,6 +3,7 @@ require 'rack/handler/puma'
 require 'csv'
 require 'pg'
 require_relative 'app/enqueuer'
+require_relative 'app/exams_importer'
 
 def create_connection
   PG.connect(dbname: 'rebase_labs_data',
@@ -97,8 +98,8 @@ get '/patient/:cpf' do |cpf|
 end
 
 post '/import' do
-  Enqueuer.enqueue("a")
-  "Enqueued"
+  ExamsImporter.import_from_csv(file_path)
+  "Importado!"
 end
 
 Rack::Handler::Puma.run(

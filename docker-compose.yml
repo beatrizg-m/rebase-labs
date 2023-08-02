@@ -53,6 +53,7 @@ services:
       PGUSER: user
       PGPASSWORD: password
       PGDATABASE: rebase_labs_data
+      REDIS_URL: redis://redis:6379/0
     working_dir: /app
     volumes:
       - .:/app
@@ -60,7 +61,7 @@ services:
       - gemconfig:/root/.local/share/gem
     ports:
       - "3000:3000"
-    command: bash -c "bundle && ruby app/import_from_csv.rb && rerun --background server.rb"
+    command: bash -c "bundle && ruby app/exams_importer.rb && rerun --background server.rb"
 
   redis-worker:
     image: ruby
