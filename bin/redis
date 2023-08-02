@@ -1,0 +1,4 @@
+docker compose run \
+  --name redis \
+  --rm \
+  redis

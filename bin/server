@@ -1,0 +1,10 @@
+docker compose run \
+  --name sinatra \
+  --rm \
+  --service-ports \
+  app \
+  bash -c "rackup \
+    --port 3000 \
+    --host 0.0.0.0 \
+    --server puma \
+    server.ru"

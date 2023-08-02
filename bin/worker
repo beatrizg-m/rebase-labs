@@ -1,0 +1,5 @@
+docker compose run \
+  --name redis-worker \
+  --rm \
+  app \
+  bash -c "sidekiq -r ./app/exams_importer.rb"
