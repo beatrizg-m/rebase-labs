@@ -9,13 +9,16 @@
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <img class="logo" src="images/logotipo.svg" alt="logo-rebase">
+        <div class="inputs">
+          <form class="d-flex gap-1" role="search">
+            <input class="form-control" type="file" id="formFile">
+            <input id="filter" class="form-control me-1" type="search" placeholder="Search for data">
+            <i class="fa-duotone fa-magnifying-glass"></i>
+            <button id="submit-search" class="btn btn-outline-success" type="submit">Search</button>
+            <button id="clear-filter" class="btn btn-outline-danger" type="submit">Clear</button>
+          </form>
+        </div>
 
-        <form class="d-flex gap-1" role="search">
-          <input id="filter" class="form-control me-1" type="search" placeholder="Search for data">
-          <i class="fa-duotone fa-magnifying-glass"></i>
-          <button id="submit-search" class="btn btn-outline-success" type="submit">Search</button>
-          <button id="clear-filter" class="btn btn-outline-danger" type="submit">Clear</button>
-        </form>
       </div>
     </nav>
     <main>
@@ -52,7 +55,6 @@
                       <th>Exame</th>
                       <th>Limites</th>
                       <th>Resultado</th>
-                      <!-- <th></th> -->
                     </tr>
                   </thead>
                 </tbody>
@@ -60,9 +62,7 @@
             </div>
             <div class="modal-body">
               <div id="detailsData">
-
               </div>
-              <!-- <p id="detailsData"></p> -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -71,6 +71,7 @@
         </div>
       </div>
     </main>
+
     <script src="main.js"></script>
     <script src="filter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
