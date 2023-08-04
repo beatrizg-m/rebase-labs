@@ -5,6 +5,12 @@ require 'sidekiq'
 
 class ExamsImporter
   include Sidekiq::Worker
+
+  # def self.perform(raw)
+  #   sleep 5
+  #   "Imported #{raw}"
+  # end
+
   def self.import_from_csv(file)
     conn = start_connection
     data = read_file(file)

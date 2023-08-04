@@ -49,10 +49,10 @@ services:
     image: ruby
     container_name: app
     environment:
-      PGHOST: rebase_db
-      PGUSER: user
-      PGPASSWORD: password
-      PGDATABASE: rebase_labs_data
+      # PGHOST: rebase_db
+      # PGUSER: user
+      # PGPASSWORD: password
+      # PGDATABASE: rebase_labs_data
       REDIS_URL: redis://redis:6379/0
     working_dir: /app
     volumes:
