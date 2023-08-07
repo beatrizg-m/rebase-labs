@@ -6,21 +6,23 @@
     <title>Rebase Lab</title>
   </head>
   <body>
+
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <img class="logo" src="images/logotipo.svg" alt="logo-rebase">
         <div class="inputs">
           <form class="d-flex gap-1" role="search">
-            <input class="form-control" type="file" id="formFile">
-            <input id="filter" class="form-control me-1" type="search" placeholder="Search for data">
+            <input class="form-control" type="file" id="formFile" placeholder="Select">
+            <input id="filter" class="form-control me-1" type="search" placeholder="Buscar dados">
             <i class="fa-duotone fa-magnifying-glass"></i>
-            <button id="submit-search" class="btn btn-outline-success" type="submit">Search</button>
-            <button id="clear-filter" class="btn btn-outline-danger" type="submit">Clear</button>
+            <button id="submit-search" class="btn btn-success" type="submit">Buscar</button>
+            <button id="clear-filter" class="btn btn-danger" type="submit">Limpar</button>
           </form>
         </div>
 
       </div>
     </nav>
+
     <main>
       <table class="table sm table-striped">
         <tbody id="dataList">

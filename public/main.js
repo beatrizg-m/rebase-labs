@@ -1,4 +1,5 @@
 const url = 'http://localhost:3000/tests';
+const importUrl = 'http://localhost:3000/import';
 const searchButton = document.querySelector('#submit-search')
 const clearButton = document.querySelector('#clear-filter')
 let initialState = []
@@ -86,5 +87,10 @@ function filterData(event) {
       row.remove()
     }
   })
+}
+
+function importFile(event, file) {
+  const importDoc = document.getElementById('formFile');
+
 }
 
