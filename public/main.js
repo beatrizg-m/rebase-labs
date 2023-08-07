@@ -89,8 +89,4 @@ function filterData(event) {
   })
 }
 
-function importFile(event, file) {
-  const importDoc = document.getElementById('formFile');
-
-}
 

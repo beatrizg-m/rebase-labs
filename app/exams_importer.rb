@@ -48,7 +48,6 @@ class ExamsImporter
                          [row['cpf'], row['nome paciente'], row['email paciente'], row['data nascimento paciente'],
                           row['endereço/rua paciente'], row['cidade paciente'], row['estado patiente']])
       rescue PG::UniqueViolation
-        puts 'Registro duplicado'
       end
 
       begin
@@ -56,7 +55,6 @@ class ExamsImporter
                           VALUES ($1, $2, $3, $4)',
                          [row['crm médico'], row['crm médico estado'], row['nome médico'], row['email médico']])
       rescue PG::UniqueViolation
-        puts 'Registro duplicado'
       end
 
       begin
@@ -64,7 +62,6 @@ class ExamsImporter
                           VALUES ($1, $2, $3, $4)',
                          [row['token resultado exame'], row['data exame'], row['cpf'], row['crm médico']])
       rescue PG::UniqueViolation
-        puts 'Registro duplicado'
       end
 
       conn.exec_params('INSERT INTO exams (exam_type, exam_limits, exam_result, token_result)
